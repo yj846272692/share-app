@@ -9,6 +9,10 @@ spring:
       discovery:
         server-addr: 120.55.48.118:8848
 #        namespace: 042d49e9-38bc-48e6-974f-7b8c3567ae31
+    sentinel:
+      transport:
+#        dashboard: 120.55.48.118:8080
+        dashboard: localhost:8080
 
   datasource:
     url: jdbc:mysql://120.55.48.118:3306/content_center?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
@@ -26,6 +30,18 @@ ribbon:
   eager-load:
     enabled: true
     clients: user-center
+
+# Spring Boot 监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+
 
     #feign:
     #  client:
