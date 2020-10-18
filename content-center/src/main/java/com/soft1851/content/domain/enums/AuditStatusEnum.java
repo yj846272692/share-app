@@ -1,4 +1,5 @@
 package com.soft1851.content.domain.enums;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

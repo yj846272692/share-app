@@ -15,12 +15,12 @@ public class TestController {
 
 
     @GetMapping("/byResource")
-    @SentinelResource(value = "byResource",blockHandler = "handleException")
-    public String byResource(){
+    @SentinelResource(value = "byResource", blockHandler = "handleException")
+    public String byResource() {
         return "按名称限流";
     }
 
-    public String handleException(BlockException blockException){
+    public String handleException(BlockException blockException) {
         return "服务不可用";
     }
 }

@@ -1,0 +1,5 @@
+<!--pages/shareDetail/shareDetail.wxml-->
+<view class="container">
+<text>{{share.downloadUrl}}</text>
+<button class="btn" bindtap='copyText' data-text="{{share.downloadUrl}}">复制下载地址</button>
+</view>

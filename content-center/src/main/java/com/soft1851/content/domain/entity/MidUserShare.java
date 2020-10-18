@@ -1,6 +1,6 @@
 package com.soft1851.content.domain.entity;
 
-import io.swagger.annotations.ApiModel;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

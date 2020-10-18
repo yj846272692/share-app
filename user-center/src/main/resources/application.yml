@@ -1,22 +1,63 @@
-server:
-  port: 0
 spring:
+#  jackson:
+#    time-zone: GMT+8
+#    date-format: yyyy-MM-dd HH:mm:ss
+
   application:
     name: user-center
-  datasource:
-    url: jdbc:mysql://120.55.48.118:3306/user_center
-    hikari:
-      username: root
-      password: 971229
-      driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     nacos:
       discovery:
-        server-addr: 120.55.48.118:8848
-#        namespace: 042d49e9-38bc-48e6-974f-7b8c3567ae31
+#        server-addr: 120.55.48.118:8848
+        server-addr: localhost:8848
 
-      # 元数据
-#        metadata:
-#          instance: yj
-#          hello: world
-#          version: 1.0
+        #        server-addr: localhost:8848
+        metadata: # 配置 Nacos 元数据
+          instance: cc
+          version: 1.0
+  #        namespace: 917f93f6-2850-41ab-8496-2e8285f037ad
+
+  datasource:
+    url: jdbc:mysql://120.55.48.118:3306/user_center?useUnide=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 971229
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      maxLifetime: 30000
+      minimum-idle: 1
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 10000
+      connection-timeout: 30000
+    type: com.zaxxer.hikari.HikariDataSource
+
+server:
+  port: 0
+
+info:
+  app:
+    name: content-center
+    version: 1.0.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+
+
+rocketmq:
+  name-server: 120.55.48.118:9876
+  producer:
+    # 必须指定group
+    group: test-group
+
+jwt:
+  secret: aaaaaaabbbbbbcccccdddddaaaaaaabbbbbbcccccdddddaaaaaaabbbbbbcccccddddd
+  # 有效期，单位秒，默认两周
+  expire-time-in-second: 1209600

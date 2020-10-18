@@ -18,6 +18,20 @@ import java.util.Date;
 @Builder
 @Data
 public class UserDto {
+
     private Integer id;
-    private String wxNickname;
+
+    private String wxId;
+
+    private String wxNickName;
+
+    private String roles;
+
+    private String avatarUrl;
+
+    private Date createTime;
+
+    private Date updateTime;
+
+    private Integer bonus;
 }

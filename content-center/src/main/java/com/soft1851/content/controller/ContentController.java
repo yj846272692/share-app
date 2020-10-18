@@ -20,8 +20,8 @@ public class ContentController {
     private RestTemplate restTemplate;
 
     @GetMapping("/hello")
-    public String getHello(){
-        return restTemplate.getForObject("http://localhost:8005/user/hello",String.class);
+    public String getHello() {
+        return restTemplate.getForObject("http://localhost:8005/user/hello", String.class);
     }
 
 }

@@ -1,6 +1,5 @@
 package com.soft1851.content.domain.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.soft1851.content.domain.entity.Share;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -79,8 +78,8 @@ public class ShareDto {
 //    @Column(name = "reason")
 //    @ApiModelProperty(name = "reason",value = "不予通过原因")
 //    private String reason;
-    @ApiModelProperty(name = "share",value = "分享资源信息")
+    @ApiModelProperty(name = "share", value = "分享资源信息")
     private Share share;
-    @ApiModelProperty(name = "nickName",value = "发布人昵称")
+    @ApiModelProperty(name = "nickName", value = "发布人昵称")
     private String wxNickName;
 }

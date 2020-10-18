@@ -1,0 +1,41 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: path_route1
+          uri: lb://user-center
+          predicates:
+            - Path=/users/**
+        - id: path_route2
+          uri: lb://content-center
+          predicates:
+            - Path=/shares/**
+        - id: path_route3
+          uri: lb://content-center
+          predicates:
+            - Path=/notices/**
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    org.springframework.cloud.gateway: trace

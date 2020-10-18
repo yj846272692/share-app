@@ -1,4 +1,5 @@
 package com.soft1851.content.service.impl;
+
 import com.soft1851.content.dao.NoticeMapper;
 import com.soft1851.content.domain.entity.Notice;
 import com.soft1851.content.service.NoticeService;
@@ -20,7 +21,7 @@ public class NoticeServiceImpl implements NoticeService {
         //按id降序
         example.setOrderByClause("id DESC");
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("showFlag",1);
+        criteria.andEqualTo("showFlag", 1);
         return noticeMapper.selectByExample(example).get(0);
     }
 }

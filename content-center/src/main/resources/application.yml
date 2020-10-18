@@ -1,17 +1,21 @@
 server:
   port: 8888
 spring:
+#  jackson:
+#    time-zone: GMT+8
+#    date-format: yyyy-MM-dd HH:mm:ss
   application:
     name: content-center
 
   cloud:
     nacos:
       discovery:
-        server-addr: 120.55.48.118:8848
-#        namespace: 042d49e9-38bc-48e6-974f-7b8c3567ae31
+#        server-addr: 120.55.48.118:8848
+        server-addr: localhost:8848
+    #        namespace: 042d49e9-38bc-48e6-974f-7b8c3567ae31
     sentinel:
       transport:
-#        dashboard: 120.55.48.118:8080
+        #        dashboard: 120.55.48.118:8080
         dashboard: localhost:8080
 
   datasource:
@@ -40,8 +44,15 @@ management:
   endpoint:
     health:
       show-details: always
+rocketmq:
+  name-server: 120.55.48.118:9876
+  producer:
+    group: test-group
 
-
+jwt:
+  secret: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  # 有效期，单位秒，默认2周
+  exprice-time-in-second: 1209600
 
     #feign:
     #  client:

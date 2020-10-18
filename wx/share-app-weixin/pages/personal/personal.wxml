@@ -1,0 +1,36 @@
+<!--pages/personal/personal.wxml-->
+<view class="container">
+
+<!-- 未登录 -->
+<view class="no-user" wx:if="{{userInfo === null}}">
+<image src="../../image/yonghu.png"></image>
+<view>登录,享受技术之旅吧!</view>
+<button class="btn" bindgetuserinfo="weixinLogin" open-type="getUserInfo">微信登录</button>
+</view>
+
+<!-- 已登录 -->
+<view class="my-info" wx:else>
+<view class="user">
+<image src="{{userInfo.avatarUrl}}"></image>
+<text>{{userInfo.wxNickName}}</text>
+<text>积分:{{userInfo.bonus}}</text>
+<view class="qiandao" bindtap="signIn" wx:if="{{isSignin === 0}}">签到</view>
+<view class="qiandao" bindtap="signIn" wx:else>已签到</view>
+<button class="tuichu" size="small" bindtap="exit">退出登录</button>
+</view>
+<!-- <view class="my-manage" wx:for="{{linkList}}">
+<navigator url="{{item.url}}">
+<view class="manage-item">{{item.text}}</view>
+</navigator>
+</view> -->
+<view class="my-manage">
+<!-- <view class="manage-item" bindtap="audit" wx:if="{{userRole == 'admin'}}">待审核资源</view>
+<view class="manage-item" bindtap="notice" wx:if="{{userRole == 'admin'}}">发布公告</view> -->
+<view class="manage-item" bindtap="wodeduihuan">我的兑换</view>
+<view class="manage-item" bindtap="jifenmingxi">积分明细</view>
+<view class="manage-item" bindtap="myContribute">我的投稿</view>
+</view>
+</view>
+
+
+</view>

@@ -1,0 +1,21 @@
+<!--pages/jifenmingxi/jifenmingxi.wxml-->
+<view class="jifen" wx:for="{{bonusList}}" wx:for-item="bonus" >
+<view class="jifen-left">
+
+<block wx:if="{{bonus.event == 'CONTRIBUTE'}}">
+<image src="/image/qiandao.png"></image>
+</block>
+
+<block wx:if="{{bonus.event == 'BY'}}">
+<image src="/image/jifen.png"></image>
+</block>
+
+<block wx:if="{{bonus.event == 'SIGN_IN'}}">
+<image src="/image/qiandao.png"></image>
+</block>
+
+<text>{{bonus.createTime}}</text>
+<text> - {{bonus.description}}</text>
+</view>
+<text class="jifen-right">{{bonus.value}}分</text>
+</view>
